@@ -23,19 +23,25 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className=' bg-gray-800 h-[500px]'>
-        <h1 className='text-center text-[2rem] font-bold text-slate-50'>Deal with us! Make your business Luxury.</h1>
-        <div className='flex justify-between mt-4'>
-          <div className='flex-1 p-4'>
-            <p>
-              MSB Decoratives and Furniture is Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit sapiente dolorum temporibus aliquid labore, architecto velit cum ut vero blanditiis eaque iusto et aliquam id consectetur numquam! Eos nesciunt error iste deleniti eaque magni nam excepturi autem harum, sit illo aliquam consequuntur veniam asperiores quia voluptate ab repellat assumenda reiciendis adipisci ratione nisi sequi veritatis culpa? Atque autem nihil voluptate accusantium tenetur architecto provident, unde enim, recusandae velit veritatis.
-            </p>
+      <section className="bg-gray-800 h-[500px]">
+        <h1 className="text-center text-[2rem] font-bold text-slate-50">
+          Deal with us! Make your business Luxury.
+        </h1>
+        <div className="flex flex-col md:flex-row justify-between mt-4 h-[calc(100%-4rem)]">
+          {/* Text Section */}
+          <div className="flex-1 p-4 overflow-hidden h-full">
+              <p>
+                MSB Decoratives and Furniture is Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit sapiente dolorum temporibus aliquid labore, architecto velit cum ut vero blanditiis eaque iusto et aliquam id consectetur numquam! Eos nesciunt error iste deleniti eaque magni nam excepturi autem harum, sit illo aliquam consequuntur veniam asperiores quia voluptate ab repellat assumenda reiciendis adipisci ratione nisi sequi veritatis culpa? Atque autem nihil voluptate accusantium tenetur architecto provident, unde enim, recusandae velit veritatis.
+              </p>
           </div>
-          <div className='flex-1 p-4'>
-            <img src={sideimage} alt="" />
+          {/* Image Section */}
+          <div className="flex-1 p-4">
+            <img src={sideimage} alt="Decorative furniture" className="w-full h-auto" />
           </div>
         </div>
       </section>
+
+
     </>
   );
 };
