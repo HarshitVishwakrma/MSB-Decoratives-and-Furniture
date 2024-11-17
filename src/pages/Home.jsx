@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import sideimage from '../assets/sideimage1.jpg'
+import Cards from '../components/Cards'
 
 
 const HomePage = () => {
@@ -23,14 +24,18 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="bg-gray-800 h-[500px]">
+      <section className={`bg-[url('/woodenbackground.jpg')] bg-cover bg-center bg-no-repeat w-full inset-0 h-[400px] flex items-center justify-center`}>
+        <Cards></Cards>
+      </section>
+
+      <section className="bg-gray-800 h-full">
         <h1 className="text-center text-[2rem] font-bold text-slate-50">
           Deal with us! Make your business Luxury.
         </h1>
-        <div className="flex flex-col md:flex-row justify-between mt-4 h-[calc(100%-4rem)]">
+        <div className="flex flex-col md:flex-row justify-between mt-4 h-full">
           {/* Text Section */}
           <div className="flex-1 p-4 overflow-hidden h-full">
-              <p>
+              <p className='text-[#8B4513]'>
                 MSB Decoratives and Furniture is Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit sapiente dolorum temporibus aliquid labore, architecto velit cum ut vero blanditiis eaque iusto et aliquam id consectetur numquam! Eos nesciunt error iste deleniti eaque magni nam excepturi autem harum, sit illo aliquam consequuntur veniam asperiores quia voluptate ab repellat assumenda reiciendis adipisci ratione nisi sequi veritatis culpa? Atque autem nihil voluptate accusantium tenetur architecto provident, unde enim, recusandae velit veritatis.
               </p>
           </div>
