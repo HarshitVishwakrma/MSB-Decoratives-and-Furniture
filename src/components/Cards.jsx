@@ -1,13 +1,14 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import card1 from '../assets/card1.jpg'
 
 const ImageCardGrid = () => {
   // Sample card data
   const cards = [
-    { id: 1, title: "Card 1" },
-    { id: 2, title: "Card 2" },
-    { id: 3, title: "Card 3" },
-    { id: 4, title: "Card 4" }
+    { id: 1, title: "Card 1", image: card1 },
+    { id: 2, title: "Card 2", image: card1 },
+    { id: 3, title: "Card 3", image: card1 },
+    { id: 4, title: "Card 4", image: card1 }
   ];
 
   return (
@@ -18,7 +19,7 @@ const ImageCardGrid = () => {
             <CardContent className="p-4">
               <div className="w-full h-40 bg-gray-200 rounded-lg mb-4">
                 <img
-                  src={`/api/placeholder/256/160`}
+                  src={card1}
                   alt={card.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
