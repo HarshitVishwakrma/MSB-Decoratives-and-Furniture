@@ -12,8 +12,8 @@ const ImageCardGrid = () => {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-2 md:flex items-center">
-      <div className="w-full flex justify-center gap-6 p-6 overflow-x-auto">
+    <div className="p-4 grid md:flex md:items-center">
+      <div className="w-full flex md:justify-center gap-6 p-6 overflow-x-auto no-scrollbar ">
         {cards.map(card => (
           <Card key={card.id} className="flex-shrink-0 w-64">
             <CardContent className="p-4">

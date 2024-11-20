@@ -24,8 +24,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className={`bg-[url('/woodenbackground.jpg')] bg-cover bg-center bg-no-repeat w-full inset-0 h-[400px] flex items-center justify-center`}>
+      <section className={`bg-[url('/woodenbackground.jpg')] bg-cover bg-center bg-no-repeat w-full inset-0 h-[400px] md:flex md:items-center md:justify-center`}>
+      <div className='w-full'>
         <Cards></Cards>
+      </div>
       </section>
 
       <section className="bg-gray-800 h-full">
