@@ -12,7 +12,7 @@ const ImageCardGrid = () => {
   ];
 
   return (
-    <div className=" flex items-center">
+    <div className="grid grid-cols-3 gap-2 md:flex items-center">
       <div className="w-full flex justify-center gap-6 p-6 overflow-x-auto">
         {cards.map(card => (
           <Card key={card.id} className="flex-shrink-0 w-64">
