@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Shop from './pages/Shop'
+import LandingPage from './pages/LandingPage'
 
 
 function App() {
@@ -13,9 +15,8 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>}>
-        
-        </Route>
+        <Route path='/' element={<LandingPage/>}></Route>
+        <Route path='/shop' element={<Shop/>}></Route>
       </Routes>
     </BrowserRouter>
     </>
