@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindcssanimate from 'tailwindcss-animate'
 
 export default {
 	content: [
@@ -16,5 +17,5 @@ export default {
 		}
 	  },
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [tailwindcssanimate],
   }
