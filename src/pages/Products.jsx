@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ShoppingBagIcon, HeartIcon } from '@heroicons/react/24/outline';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 // Product Data
 const products = [
@@ -42,7 +44,7 @@ function Header({ cartCount }) {
   return (
     <nav className="bg-[#2c1810] text-white py-4 px-6 fixed w-full z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-serif">Woodland Treasures</h1>
+        <h1 className="text-2xl font-serif">MSB Decoratives and Furnitures</h1>
         <div className="flex items-center space-x-6">
           <HeartIcon className="h-6 w-6 cursor-pointer hover:text-[#d4a373]" />
           <div className="relative">
@@ -81,9 +83,12 @@ function Hero() {
 
 // Category Filter Component
 function CategoryFilter({ categories, activeCategory, onCategoryChange }) {
+
+  const tabs = ["Retail", "WholeSale"]
+
   return (
     <div className="flex justify-center space-x-6 mb-12 py-12">
-      {categories.map(category => (
+      {tabs.map(category => (
         <button
           key={category}
           onClick={() => onCategoryChange(category)}
@@ -132,7 +137,7 @@ function ProductCard({ product, onAddToCart }) {
 // Product Grid Component
 function ProductGrid({ products, onAddToCart }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 m-8">
       {products.map(product => (
         <ProductCard
           key={product.id}
@@ -168,44 +173,11 @@ function Newsletter() {
   );
 }
 
-// Footer Component
-function Footer() {
-  return (
-    <footer className="bg-[#2c1810] text-white mt-20 py-12">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div>
-          <h3 className="text-xl font-serif mb-4">Woodland Treasures</h3>
-          <p className="text-gray-400">Bringing nature's beauty into your home through handcrafted wooden masterpieces.</p>
-        </div>
-        <div>
-          <h4 className="text-lg font-serif mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-gray-400">
-            <li className="hover:text-[#d4a373] cursor-pointer">About Us</li>
-            <li className="hover:text-[#d4a373] cursor-pointer">Contact</li>
-            <li className="hover:text-[#d4a373] cursor-pointer">Shipping Info</li>
-            <li className="hover:text-[#d4a373] cursor-pointer">Returns</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-lg font-serif mb-4">Contact Us</h4>
-          <p className="text-gray-400">Email: info@woodlandtreasures.com</p>
-          <p className="text-gray-400">Phone: (555) 123-4567</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 // Main Products Component
 function Products() {
   const [cart, setCart] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const categories = ['All', ...new Set(products.map(p => p.category))];
-  
-  const filteredProducts = activeCategory === 'All' 
-    ? products 
-    : products.filter(p => p.category === activeCategory);
+  const [activeTab, setActiveTab] = useState('Retail');
 
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -213,15 +185,14 @@ function Products() {
 
   return (
     <div className="min-h-screen bg-[#f8f3e9]">
-      <Header cartCount={cart.length} />
+      <Navbar></Navbar>
       <Hero />
       <main className="max-w-7xl mx-auto px-6">
         <CategoryFilter 
-          categories={categories} 
-          activeCategory={activeCategory} 
-          onCategoryChange={setActiveCategory} 
+          activeCategory={activeTab} 
+          onCategoryChange={setActiveTab} 
         />
-        <ProductGrid products={filteredProducts} onAddToCart={addToCart} />
+        <ProductGrid products={products} onAddToCart={addToCart} />
       </main>
       <Newsletter />
       <Footer />
