@@ -29,7 +29,7 @@ function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
   return (
-    <div className="p-16 bg-gray-50">
+    <div className="md:p-16 pt-4 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
