@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ShoppingBagIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 // Product Data
 const products = [
@@ -10,7 +11,7 @@ const products = [
     name: 'Artisan Wooden Bowl',
     price: 89.99,
     description: 'Hand-carved from sustainable maple wood',
-    image: 'https://images.unsplash.com/photo-1635241161466-541f065683ba?w=500',
+    image: 'https://img.freepik.com/free-photo/handcrafted-wooden-decorative-sculpture_23-2151003033.jpg?t=st=1734368990~exp=1734372590~hmac=9bd9cc07fef57750b7ffa8cc08de3efb9e7d3fc0ffd0f1cf16841aff047bc5ac&w=360',
     category: 'Kitchen'
   },
   {
@@ -106,9 +107,11 @@ function CategoryFilter({ categories, activeCategory, onCategoryChange }) {
 }
 
 // Product Card Component
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({goto, product, onAddToCart }) {
+
+
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+    <div  onClick={() => goto(`/products/113`)}  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
       <div className="h-64 overflow-hidden">
         <img 
           src={product.image} 
@@ -135,11 +138,12 @@ function ProductCard({ product, onAddToCart }) {
 }
 
 // Product Grid Component
-function ProductGrid({ products, onAddToCart }) {
+function ProductGrid({goto ,products, onAddToCart }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 m-8">
       {products.map(product => (
         <ProductCard
+          goto = {goto}
           key={product.id}
           product={product}
           onAddToCart={onAddToCart}
@@ -178,6 +182,11 @@ function Newsletter() {
 function Products() {
   const [cart, setCart] = useState([]);
   const [activeTab, setActiveTab] = useState('Retail');
+  const navigate = useNavigate();
+
+  const goto = (path) =>{
+    navigate(path)
+  }
 
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -192,7 +201,7 @@ function Products() {
           activeCategory={activeTab} 
           onCategoryChange={setActiveTab} 
         />
-        <ProductGrid products={products} onAddToCart={addToCart} />
+        <ProductGrid goto={goto} products={products} onAddToCart={addToCart} />
       </main>
       <Newsletter />
       <Footer />

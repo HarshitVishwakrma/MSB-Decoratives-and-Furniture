@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { FaHome } from 'react-icons/fa';
 import { IoMdMenu, IoMdClose } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
+
 
 export default function Navbar() {
-
-  const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -34,8 +32,8 @@ export default function Navbar() {
 
         {isMenuOpen && (
           <div className="md:hidden pb-4">
-            <a href="#home" className="block py-2 hover:text-[#d4a373]">Home</a>
-            <a href="#products" className="block py-2 hover:text-[#d4a373]">Products</a>
+            <a href="/" className="block py-2 hover:text-[#d4a373]">Home</a>
+            <a href="/products" className="block py-2 hover:text-[#d4a373]">Products</a>
             <a href="#about" className="block py-2 hover:text-[#d4a373]">About</a>
             <a href="#contact" className="block py-2 hover:text-[#d4a373]">Contact</a>
           </div>
